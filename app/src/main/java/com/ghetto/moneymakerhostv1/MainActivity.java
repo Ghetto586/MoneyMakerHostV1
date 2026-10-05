@@ -34,8 +34,20 @@ public class MainActivity extends Activity {
         root.setPadding(dp(20), dp(24), dp(20), dp(24));
         scroll.addView(root);
 
-        TextView brand = label("MoneyMaker", 28, text, true);
-        root.addView(brand);
+        ImageView logo = new ImageView(this);
+logo.setImageResource(com.moneymaker.host.R.drawable.moneymaker_logo);
+logo.setAdjustViewBounds(true);
+logo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
+LinearLayout.LayoutParams logoParams =
+        new LinearLayout.LayoutParams(-1, dp(180));
+logoParams.gravity = Gravity.CENTER;
+root.addView(logo, logoParams);
+
+TextView brand = label("MoneyMaker", 28, text, true);
+brand.setGravity(Gravity.CENTER);
+root.addView(brand);
+    
         TextView subtitle = label("HOST  •  VERSION 1", 12, green, true);
         root.addView(subtitle);
         addSpace(root, 22);
